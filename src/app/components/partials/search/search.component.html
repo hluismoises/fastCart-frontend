@@ -1,0 +1,20 @@
+<div>
+  <input
+    #s
+    type="text"
+    placeholder="¿Buscas algo?"
+    (keyup.enter)="search(s.value)"
+    [value]="searchTerm"
+  />
+  <button (click)="search(s.value)">Buscar</button>
+</div>
+
+<section class="mt-5" *ngIf="searchTerm">
+  <h3>Resultados para "{{ searchTerm }}":</h3>
+  <hr />
+</section>
+
+<section class="mt-5" *ngIf="!searchTerm">
+  <h3>Productos mas recientes</h3>
+  <hr />
+</section>

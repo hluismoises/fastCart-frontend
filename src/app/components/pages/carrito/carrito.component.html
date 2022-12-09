@@ -1,0 +1,135 @@
+<app-titulo title="Carrito de Compra" margin="1.5rem 0 0 2.5rem"></app-titulo>
+
+<app-not-found
+  [visible]="!cart || !cart.items.length"
+  notFoundMessage="El carrito de compras esta vacio!"
+  resetLinkText="Ir a la pagina principal"
+></app-not-found>
+
+<section *ngIf="cart.items.length" class="h-100 h-custom">
+  <div class="container py-5 h-50">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div
+          class="card card-registration card-registration-2"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-8">
+                <div class="p-5">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-5"
+                  >
+                    <h1 class="fw-bold mb-0 text-black">Productos</h1>
+                    <h6 class="mb-0 text-muted">{{ cart.totalCount }} Items</h6>
+                  </div>
+                  <hr class="my-4" />
+
+                  <div
+                    *ngFor="let cartItem of cart.items"
+                    class="row mb-4 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        [src]="cartItem.producto.imageUrl"
+                        class="img-fluid rounded-3"
+                        [alt]="cartItem.producto.nombre"
+                      />
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <div *ngFor="let empresa of cartItem.producto.empresas">
+                        <h6 class="text-muted">{{ empresa }}</h6>
+                      </div>
+                      <h6
+                        routerLink="/producto/{{ cartItem.producto.id }}"
+                        class="text-black mb-0"
+                      >
+                        {{ cartItem.producto.nombre }}
+                      </h6>
+                    </div>
+
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <select
+                        #quantitySelect
+                        class="cantidades-select"
+                        [value]="cartItem.quantity"
+                        (change)="
+                          changeQuantity(cartItem, quantitySelect.value)
+                        "
+                      >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h6 class="mb-0">{{ cartItem.precio | currency }}</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <i
+                        (click)="removeFromCart(cartItem)"
+                        class="fa-solid fa-trash-can btn btn-danger eliminar"
+                      ></i>
+                    </div>
+                  </div>
+
+                  <hr class="my-4" />
+
+                  <div class="pt-5">
+                    <h6 class="mb-0">
+                      <a href="/" class="text-body"
+                        ><i class="fas fa-long-arrow-alt-left me-2"></i>Regresar
+                        a Principal</a
+                      >
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 bg-grey">
+                <div class="p-5">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Resumen</h3>
+                  <hr class="my-4" />
+
+                  <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase">Items {{ cart.totalCount }}</h5>
+                    <h5>{{ cart.totalPrice | currency }}</h5>
+                  </div>
+
+                  <h5 class="text-uppercase mb-3">Envio</h5>
+
+                  <div class="mb-4 pb-2">
+                    <select class="select">
+                      <option value="1">Envio gratis</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-5"></div>
+
+                  <hr class="my-4" />
+
+                  <div class="d-flex justify-content-between mb-5">
+                    <h5 class="text-uppercase">Precio Total</h5>
+                    <h5>{{ cart.totalPrice | currency }}</h5>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="btn btn-dark btn-block btn-lg"
+                    data-mdb-ripple-color="dark"
+                  >
+                    Pagar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section class="mt-5 p-5">
+  <div>
+    <h1 class="mb-4">Visita nuestras empresas</h1>
+  </div>
+
+  <div class="empresas-container">
+    <div class="row" *ngIf="empresas">
+      <div
+        class="card-container col-sm-12 col-md-4"
+        *ngFor="let empresa of empresas"
+        style="position: relative"
+      >
+        <a
+          routerLink="/empresa/{{ empresa.nombre }}"
+          style="text-align: center"
+        >
+          <div
+            class="card border border-warning shadow-0 mb-3"
+            style="max-width: 18rem"
+          >
+            <div class="card-header">Categoria: Electronico</div>
+            <div class="card-body">
+              <h5 class="card-title">{{ empresa.nombre }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

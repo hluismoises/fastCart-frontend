@@ -1,0 +1,94 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a routerLink="/" class="navbar-brand" href="#"
+      ><img
+        class="brand-img"
+        src="../../../../assets/img/logo fast cart.png"
+        alt=""
+      />
+      <strong class="ms-2">Fast Cart</strong></a
+    >
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="basicNavbar.toggle()"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      mdbCollapse
+      #basicNavbar="mdbCollapse"
+    >
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <!-- Left links -->
+
+      <!-- Search form -->
+      <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              routerLink="/planes"
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              >Planes</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              routerLink="/perfil"
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              >Luis</a
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/cart" class="nav-link" href="#"
+              ><i class="fa-solid fa-cart-shopping"></i> Carrito
+              <span *ngIf="cartQuantity">{{ cartQuantity }}</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <button
+              routerLink="/login"
+              type="button"
+              class="btn btn-outline-danger"
+            >
+              <i class="fa-solid fa-user me-2"></i> Iniciar sesion
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              routerLink="/register"
+              type="button"
+              class="btn btn-danger ms-2"
+            >
+              <i class="fa-solid fa-user-plus me-2"></i> Registrarse
+            </button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-danger ms-2">
+              <i class="fa-solid fa-user-minus me-2"></i> LogOut
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

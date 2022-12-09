@@ -1,0 +1,70 @@
+body {
+  background-color: #ecedee;
+}
+
+.card {
+  border: none;
+  overflow: hidden;
+}
+
+.main_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  height: 700px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content p {
+  font-size: 12px;
+}
+.ratings span {
+  font-size: 14px;
+  margin-left: 12px;
+}
+.colors {
+  margin-top: 5px;
+}
+.colors ul {
+  list-style: none;
+  display: flex;
+  padding-left: 0px;
+}
+.colors ul li {
+  display: flex;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-right: 10px;
+  color: white;
+  cursor: pointer;
+}
+.colors ul li:nth-child(1) {
+  background-color: #939967;
+}
+.colors ul li:nth-child(2) {
+  background-color: #96918b;
+}
+.colors ul li:nth-child(3) {
+  background-color: #68778e;
+}
+.colors ul li:nth-child(4) {
+  background-color: #263f55;
+}
+.colors ul li:nth-child(5) {
+  background-color: black;
+}
+.right-side {
+  position: relative;
+}
+
+.buttons .btn {
+  height: 50px;
+  width: 150px;
+  border-radius: 0px !important;
+}
+
+.btn-danger {
+  background-color: #f16858;
+}
