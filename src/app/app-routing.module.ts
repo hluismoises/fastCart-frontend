@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CarritoComponent } from './components/pages/carrito/carrito.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { LoginComponent } from './components/pages/login/login.component';
 import { ProductoDetalleComponent } from './components/pages/producto-detalle/producto-detalle.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'empresa/:empresa', component: HomeComponent },
   { path: 'producto/:id', component: ProductoDetalleComponent },
   { path: 'cart', component: CarritoComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

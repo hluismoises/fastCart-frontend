@@ -46,13 +46,13 @@
               >Planes</a
             >
           </li>
-          <li class="nav-item">
+          <li *ngIf="user.token" class="nav-item">
             <a
               routerLink="/perfil"
               class="nav-link active"
               aria-current="page"
               href="#"
-              >Luis</a
+              >{{ user.name }}</a
             >
           </li>
           <li class="nav-item">
@@ -61,7 +61,7 @@
               <span *ngIf="cartQuantity">{{ cartQuantity }}</span></a
             >
           </li>
-          <li class="nav-item">
+          <li *ngIf="!user.token" class="nav-item">
             <button
               routerLink="/login"
               type="button"
@@ -70,7 +70,7 @@
               <i class="fa-solid fa-user me-2"></i> Iniciar sesion
             </button>
           </li>
-          <li class="nav-item">
+          <li *ngIf="!user.token" class="nav-item">
             <button
               routerLink="/register"
               type="button"
@@ -79,8 +79,12 @@
               <i class="fa-solid fa-user-plus me-2"></i> Registrarse
             </button>
           </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-outline-danger ms-2">
+          <li *ngIf="user.token" class="nav-item">
+            <button
+              (click)="logout()"
+              type="button"
+              class="btn btn-outline-danger ms-2"
+            >
               <i class="fa-solid fa-user-minus me-2"></i> LogOut
             </button>
           </li>
