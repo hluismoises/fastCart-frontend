@@ -30,6 +30,8 @@ import { ProductoDetalleComponent } from './components/pages/producto-detalle/pr
 import { CarritoComponent } from './components/pages/carrito/carrito.component';
 import { TituloComponent } from './components/partials/titulo/titulo.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
     CarritoComponent,
     TituloComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { NotFoundComponent } from './components/partials/not-found/not-found.com
     MdbValidationModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
