@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
 
-    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
+    //this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
+    this.returnUrl = '/home';
   }
 
   //Obtener el FormControl como una propiedad para utilizarlo en el HTML
@@ -47,7 +48,8 @@ export class LoginComponent implements OnInit {
     this.userService
       .login({ email: this.fc.email.value, password: this.fc.password.value })
       .subscribe(() => {
-        this.router.navigateByUrl(this.returnUrl);
+        //this.router.navigateByUrl(this.returnUrl);
+        this.router.navigateByUrl('/home');
       });
   }
 }

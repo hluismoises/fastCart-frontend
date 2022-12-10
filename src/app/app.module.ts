@@ -37,6 +37,7 @@ import { LandingComponent } from './components/pages/landing/landing.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     LandingComponent,
     RegisterComponent,
     CheckoutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

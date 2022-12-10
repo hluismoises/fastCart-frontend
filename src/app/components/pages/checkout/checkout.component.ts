@@ -54,7 +54,7 @@ export class CheckoutComponent implements OnInit {
 
     this.orderService.create(this.order).subscribe({
       next: () => {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/home');
       },
       error: (errorResponse) => {
         console.log(errorResponse.error);

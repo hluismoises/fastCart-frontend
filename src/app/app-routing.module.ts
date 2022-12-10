@@ -7,10 +7,11 @@ import { LandingComponent } from './components/pages/landing/landing.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { PlansComponent } from './components/pages/plans/plans.component';
 import { ProductoDetalleComponent } from './components/pages/producto-detalle/producto-detalle.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'search/:searchTerm', component: HomeComponent },
   { path: 'empresa/:empresa', component: HomeComponent },
   { path: 'producto/:id', component: ProductoDetalleComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'plans', component: PlansComponent },
-  { path: 'landing', component: LandingComponent },
+  { path: '', component: LandingComponent },
+  { path: 'profile/:id', component: ProfileComponent },
 ];
 
 @NgModule({
