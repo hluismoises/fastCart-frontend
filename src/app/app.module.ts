@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 // MDB Modules
@@ -36,6 +36,7 @@ import { PlansComponent } from './components/pages/plans/plans.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,9 @@ import { CheckoutComponent } from './components/pages/checkout/checkout.componen
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -7,5 +7,4 @@ export class Order {
   name!: string;
   address!: string;
   createdAt!: string;
-  status!: string;
 }

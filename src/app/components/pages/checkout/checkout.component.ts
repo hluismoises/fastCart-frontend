@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
 import { Order } from 'src/app/shared/models/order';
 
@@ -16,7 +18,9 @@ export class CheckoutComponent implements OnInit {
   constructor(
     cartService: CartService,
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private orderService: OrderService,
+    private router: Router
   ) {
     const cart = cartService.getCart();
     this.order.items = cart.items;
@@ -48,13 +52,13 @@ export class CheckoutComponent implements OnInit {
 
     console.log(this.order);
 
-    /* this.orderService.create(this.order).subscribe({
-      next:() => {
-        this.router.navigateByUrl('/payment');
+    this.orderService.create(this.order).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/');
       },
-      error:(errorResponse) => {
-        this.toastrService.error(errorResponse.error, 'Cart');
-      }
-    }) */
+      error: (errorResponse) => {
+        console.log(errorResponse.error);
+      },
+    });
   }
 }
