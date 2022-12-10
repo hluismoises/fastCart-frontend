@@ -77,4 +77,9 @@ export class CartService {
     const cartJson = localStorage.getItem('Cart');
     return cartJson ? JSON.parse(cartJson) : new Cart();
   }
+
+  removeCartFromLocalStorage() {
+    localStorage.removeItem('Cart');
+    console.log('eliminando..');
+  }
 }

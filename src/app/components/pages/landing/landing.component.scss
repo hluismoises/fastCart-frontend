@@ -1,0 +1,28 @@
+section {
+  background-color: #3c404b;
+  height: 100vh;
+}
+
+.img-logo {
+  padding-top: 100px;
+  width: 18rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+h1 {
+  padding-top: 20px;
+  color: #c44f34;
+}
+
+h2 {
+  margin-top: 60px;
+  color: white;
+}

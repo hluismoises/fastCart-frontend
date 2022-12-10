@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 // MDB Modules
@@ -32,6 +32,14 @@ import { TituloComponent } from './components/partials/titulo/titulo.component';
 import { NotFoundComponent } from './components/partials/not-found/not-found.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlansComponent } from './components/pages/plans/plans.component';
+import { LandingComponent } from './components/pages/landing/landing.component';
+import { RegisterComponent } from './components/pages/register/register.component';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PageEditorComponent } from './components/pages/page-editor/page-editor.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +53,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     TituloComponent,
     NotFoundComponent,
     LoginComponent,
+    PlansComponent,
+    LandingComponent,
+    RegisterComponent,
+    CheckoutComponent,
+    ProfileComponent,
+    PageEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +81,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CKEditorModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

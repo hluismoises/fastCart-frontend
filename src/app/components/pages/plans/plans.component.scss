@@ -1,0 +1,55 @@
+@media screen and (max-width: 1120px) {
+  .sub-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-evenly !important;
+    align-items: stretch !important;
+    align-content: stretch !important;
+  }
+}
+
+.sub-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.titulos {
+  text-align: center;
+}
+
+h3 {
+  justify-content: center !important;
+  font-weight: 300;
+}
+h5 {
+  font-weight: 400;
+}
+
+strong {
+  font-size: 1.5rem;
+}
+
+.tbl-estilos {
+  padding: 20px 50px;
+}
+
+.card-title {
+  font-weight: 700;
+}
+.cont-preguntas {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+}
+
+.preguntas-collapse {
+  text-align: center;
+}

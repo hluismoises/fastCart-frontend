@@ -3,7 +3,16 @@
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
-    <a routerLink="/" class="navbar-brand" href="#"
+    <a *ngIf="!user.token" routerLink="/" class="navbar-brand" href="#"
+      ><img
+        class="brand-img"
+        src="../../../../assets/img/logo fast cart.png"
+        alt=""
+      />
+      <strong class="ms-2">Fast Cart</strong></a
+    >
+
+    <a *ngIf="user.token" routerLink="/home" class="navbar-brand" href="#"
       ><img
         class="brand-img"
         src="../../../../assets/img/logo fast cart.png"
@@ -37,25 +46,25 @@
       <!-- Search form -->
       <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li *ngIf="!user.token" class="nav-item me-3">
             <a
               routerLink="/planes"
               class="nav-link active"
               aria-current="page"
-              href="#"
+              routerLink="/plans"
               >Planes</a
             >
           </li>
           <li *ngIf="user.token" class="nav-item">
             <a
-              routerLink="/perfil"
+              routerLink="/profile/{{ user.id }}"
               class="nav-link active"
               aria-current="page"
               href="#"
               >{{ user.name }}</a
             >
           </li>
-          <li class="nav-item">
+          <li *ngIf="user.token" class="nav-item">
             <a routerLink="/cart" class="nav-link" href="#"
               ><i class="fa-solid fa-cart-shopping"></i> Carrito
               <span *ngIf="cartQuantity">{{ cartQuantity }}</span></a
