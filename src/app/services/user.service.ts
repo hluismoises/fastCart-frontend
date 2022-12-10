@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { USER_LOGIN_URL } from '../shared/constants/url';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/url';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 import { User } from '../shared/models/user';
 
 const USER_KEY = 'User';
@@ -27,6 +28,20 @@ export class UserService {
         },
         error: (errorResponse) => {
           console.log(errorResponse.error, 'Login Incorrecto');
+        },
+      })
+    );
+  }
+
+  register(userRegiser: IUserRegister): Observable<User> {
+    return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+        },
+        error: (errorResponse) => {
+          console.log(errorResponse.error, 'Error al registrarse');
         },
       })
     );

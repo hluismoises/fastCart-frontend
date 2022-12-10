@@ -6,6 +6,7 @@ import { LandingComponent } from './components/pages/landing/landing.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { PlansComponent } from './components/pages/plans/plans.component';
 import { ProductoDetalleComponent } from './components/pages/producto-detalle/producto-detalle.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'producto/:id', component: ProductoDetalleComponent },
   { path: 'cart', component: CarritoComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'plans', component: PlansComponent },
   { path: 'landing', component: LandingComponent },
 ];

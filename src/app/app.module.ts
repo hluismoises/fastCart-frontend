@@ -34,6 +34,7 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlansComponent } from './components/pages/plans/plans.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { LandingComponent } from './components/pages/landing/landing.component';
     LoginComponent,
     PlansComponent,
     LandingComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
