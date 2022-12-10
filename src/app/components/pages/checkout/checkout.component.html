@@ -1,0 +1,114 @@
+<div class="container mt-5 mb-5">
+  <div class="window mt-5">
+    <div class="order-info">
+      <div class="order-info-content">
+        <h2><strong>Resumen de compra</strong></h2>
+        <div class="line"></div>
+        <!-- iterar -->
+        <table class="order-table" *ngFor="let item of order.items">
+          <tbody>
+            <tr>
+              <td>
+                <a routerLink="/producto/{{ item.producto.id }}">
+                  <img
+                    class="producto-imagen"
+                    [src]="item.producto.imageUrl"
+                    alt=""
+                  />
+                </a>
+              </td>
+              <td>
+                <br />
+                <span class="thin">{{ item.producto.nombre }}</span> <br />
+                <div *ngFor="let empresa of item.producto.empresas">
+                  <span class="thin small"> {{ empresa }}<br /></span>
+                  <span class="thin small"
+                    >Cantidad: {{ item.cantidad }}<br /><br
+                  /></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="price">${{ item.precio }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="line"></div>
+        <!-- iterar -->
+
+        <div class="total mb-5 pb-2">
+          <span style="float: left">TOTAL</span>
+          <span style="float: right; text-align: right"
+            >${{ order.totalPrice }}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="credit-info">
+      <div class="credit-info-content">
+        <h2><strong>Datos de envio</strong></h2>
+        <div class="line"></div>
+        <form [formGroup]="checkoutForm" class="mt-5">
+          <label class="form-label" for="name" style="color: white"
+            >Persona que recibe:</label
+          ><br />
+          <input
+            class="form-control"
+            type="text"
+            id="name"
+            name="name"
+            [value]="fc.name.value"
+          /><br />
+          <label class="form-label" for="address" style="color: white"
+            >Direccion de envio:</label
+          ><br />
+          <input
+            class="form-control"
+            type="text"
+            id="address"
+            name="address"
+            [value]="fc.address.value"
+          /><br /><br />
+
+          <button class="pay-btn" type="submit" (click)="createOrder()">
+            Pagar
+          </button>
+        </form>
+        <!--  <form class="mt-5">
+          <mdb-form-control class="form-white mb-4">
+            <input
+              mdbInput
+              type="text"
+              id="form1"
+              class="form-control"
+              formControlName="name"
+            />
+
+            <label mdbLabel class="form-label" for="form1"
+              >Nombre de la persona que recibe</label
+            >
+          </mdb-form-control>
+
+          <mdb-form-control class="form-white mb-4">
+            <input
+              mdbInput
+              type="text"
+              id="form2"
+              class="form-control"
+              formControlName="address"
+            />
+
+            <label mdbLabel class="form-label" for="form2"
+              >Direccion de envio</label
+            >
+          </mdb-form-control>
+
+          <button class="pay-btn" type="submit">Pagar</button>
+        </form> -->
+      </div>
+    </div>
+  </div>
+</div>

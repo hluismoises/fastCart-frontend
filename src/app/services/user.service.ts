@@ -15,8 +15,13 @@ export class UserService {
     this.getUserFromLocalStorage()
   );
   public userObservable: Observable<User>;
+
   constructor(private http: HttpClient) {
     this.userObservable = this.userSubject.asObservable();
+  }
+
+  public get currentUser(): User {
+    return this.userSubject.value;
   }
 
   login(userLogin: IUserLogin): Observable<User> {

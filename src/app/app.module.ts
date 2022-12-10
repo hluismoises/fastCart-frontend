@@ -35,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PlansComponent } from './components/pages/plans/plans.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { RegisterComponent } from './components/pages/register/register.componen
     PlansComponent,
     LandingComponent,
     RegisterComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
