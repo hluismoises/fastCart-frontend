@@ -38,6 +38,8 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ProfileComponent } from './components/pages/profile/profile.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PageEditorComponent } from './components/pages/page-editor/page-editor.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
     RegisterComponent,
     CheckoutComponent,
     ProfileComponent,
+    PageEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CKEditorModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

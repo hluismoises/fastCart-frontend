@@ -5,6 +5,7 @@ import { CheckoutComponent } from './components/pages/checkout/checkout.componen
 import { HomeComponent } from './components/pages/home/home.component';
 import { LandingComponent } from './components/pages/landing/landing.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { PageEditorComponent } from './components/pages/page-editor/page-editor.component';
 import { PlansComponent } from './components/pages/plans/plans.component';
 import { ProductoDetalleComponent } from './components/pages/producto-detalle/producto-detalle.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'plans', component: PlansComponent },
   { path: '', component: LandingComponent },
   { path: 'profile/:id', component: ProfileComponent },
+  { path: 'page-edit', component: PageEditorComponent },
 ];
 
 @NgModule({

@@ -27,7 +27,7 @@
     <div *ngFor="let producto of productos" class="col-sm-6 col-md-4 mt-4">
       <div class="card">
         <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
-          <img [src]="producto.imageUrl" class="img-fluid" />
+          <img [src]="producto.imageUrl" class="img-fluid img-card" />
           <a routerLink="/producto/{{ producto.id }}">
             <div
               class="mask"

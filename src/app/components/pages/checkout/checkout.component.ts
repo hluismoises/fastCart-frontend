@@ -16,13 +16,13 @@ export class CheckoutComponent implements OnInit {
   order: Order = new Order();
   checkoutForm!: FormGroup;
   constructor(
-    cartService: CartService,
+    private cartService: CartService,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private orderService: OrderService,
     private router: Router
   ) {
-    const cart = cartService.getCart();
+    const cart = this.cartService.getCart();
     this.order.items = cart.items;
     this.order.totalPrice = cart.totalPrice;
   }
@@ -55,9 +55,10 @@ export class CheckoutComponent implements OnInit {
     this.orderService.create(this.order).subscribe({
       next: () => {
         this.router.navigateByUrl('/home');
+        //this.cartService.clearCart();
       },
       error: (errorResponse) => {
-        console.log(errorResponse.error);
+        console.log('Hubo un error', errorResponse.error);
       },
     });
   }

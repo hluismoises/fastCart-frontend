@@ -4,7 +4,7 @@ export class Order {
   id!: number;
   items!: CartItem[];
   totalPrice!: number;
-  name!: string;
+  name: string;
   address!: string;
   createdAt!: string;
 }
